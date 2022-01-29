@@ -1,11 +1,18 @@
 import React from 'react'
 import "./Sign.css"
+import {FaEyeSlash,FaEye} from 'react-icons/fa'
 import {Link,useHistory} from 'react-router-dom'
 import {useState,useEffect} from 'react'
 
 function Sign() {
    const [username,setusername] = useState("")
    const [password,setpassword] = useState("")
+
+   // show password
+   const [state,setstate] = useState(false);
+   const toggle = () => {
+      setstate(prevState => !prevState);
+   }
   
 
    const history = useHistory();
@@ -71,9 +78,12 @@ function Sign() {
                               />
                            </div>
                            <div class="field">
-                              <input type="password" name="password" placeholder="Password" 
+                              <input type={state?"text":"password"} name="password" placeholder="Password" 
                                  onChange={(e)=>setpassword(e.target.value)}
                               />
+                              <span className="showpass" onClick={toggle}>
+                                 {state?<FaEye />:<FaEyeSlash />}
+                              </span>
                            </div>
                            <div class="field">
                               <a className="forgot" href="">Forgotten Password?</a>

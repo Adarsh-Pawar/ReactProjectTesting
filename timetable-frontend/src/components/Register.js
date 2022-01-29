@@ -1,10 +1,12 @@
 import React from 'react'
 import "./Register.css"
-import {Link } from 'react-router-dom';
+import {FaEye,FaEyeSlash} from 'react-icons/fa'
+import {Link } from 'react-router-dom'
 import {useState,useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
+
 function Register() {
-   
+
    useEffect(()=>{
       if(localStorage.getItem('user_info'))
       {
@@ -18,6 +20,12 @@ function Register() {
    const [email,setemail] = useState("")
    const [password,setpassword] = useState("")
    const history = useHistory();
+
+   // show password
+   const [state,setstate] = useState(false);
+   const toggle = () => {
+      setstate(prevState => !prevState);
+   }
 
    const reg = async (event) => {
       event.preventDefault();
@@ -57,29 +65,33 @@ function Register() {
                      <form onSubmit={reg}>
                         <fieldset>
                            <div className="field ">
-                              <input type="text" name="username" placeholder="User" 
-                                 value={username} onChange={(e)=>setusername(e.target.value)}
+                              <input type="text" name="username" placeholder="Username" 
+                                 value={username} onChange={(e)=>setusername(e.target.value)} required
                               />
                            </div>
                            <div class="field">
                               <input type="text" name="firstname" placeholder="First Name" 
-                                 value={firstname} onChange={(e)=>setfirstname(e.target.value)}
+                                 value={firstname} onChange={(e)=>setfirstname(e.target.value)} required
                               />
                            </div>
                            <div className="field ">
                               <input type="text" name="lastname" placeholder="Last Name" 
-                                 value={lastname} onChange={(e)=>setlastname(e.target.value)}
+                                 value={lastname} onChange={(e)=>setlastname(e.target.value)} required
                               />
                            </div>
                            <div class="field">
+                              
                               <input type="email" name="email" placeholder="Email" 
-                                 value={email} onChange={(e)=>setemail(e.target.value)}
+                                 value={email} onChange={(e)=>setemail(e.target.value)} required
                               />
                            </div>
                            <div class="field">
-                              <input type="password" name="password" placeholder="Password" 
-                                 value={password} onChange={(e)=>setpassword(e.target.value)}
+                              <input type={state?"text":"password"} name="password" placeholder="Password" 
+                                 value={password} onChange={(e)=>setpassword(e.target.value)} required
                               />
+                              <span className="showpass" onClick={toggle}>
+                                 {state?<FaEye />:<FaEyeSlash />}
+                              </span>
                            </div>
                            <div className="field margin_0">
                               <input type="submit" value="Register" className="btn"/>

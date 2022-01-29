@@ -1,5 +1,5 @@
 import React from 'react'
-import {BsFillEyeFill,BsFillEyeSlashFill} from 'react-icons/bs'
+import {FaEyeSlash,FaEye} from 'react-icons/fa'
 import "./Login.css"
 import {useHistory} from 'react-router-dom'
 import {useState,useEffect} from 'react'
@@ -14,6 +14,12 @@ function Login() {
    }, [])
    const [username,setusername] = useState("")
    const [password,setpassword] = useState("")
+
+   // show password
+   const [state,setstate] = useState(false);
+   const toggle = () => {
+      setstate(prevState => !prevState);
+   }
 
 
    const log = async (event)=> {
@@ -59,14 +65,15 @@ function Login() {
                         <fieldset>
                            <div className="field ">
                               <input type="text" name="username" placeholder="Username"
-                              onChange={(e)=>setusername(e.target.value)} />
+                              onChange={(e)=>setusername(e.target.value)} required/>
                            </div>
                            <div class="field">
-                              <input className="pass" type="password" name="password" placeholder="Password"
-                              onChange={(e)=>setpassword(e.target.value)} />
-                              <button className="showpass">
-                                 <BsFillEyeFill />
-                              </button>
+                           
+                              <input type={state?"text":"password"} name="password" placeholder="Password"
+                              onChange={(e)=>setpassword(e.target.value)} required/>
+                              <span className="showpass" onClick={toggle}>
+                                 {state?<FaEye />:<FaEyeSlash />}
+                              </span>
                               
                            </div>
                            <div class="field">

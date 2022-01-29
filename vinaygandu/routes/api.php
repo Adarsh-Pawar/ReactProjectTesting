@@ -23,7 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/addCourse',[CourseController::class,'addCourse']);
 Route::get('/fetch',[CourseController::class,'fetch']);
-Route::put('/update/{id}',[CourseController::class,'update']);
+Route::post('/update/{id}',[CourseController::class,'update']);
+Route::get('/prefill/{id}',[CourseController::class,'prefill']);
 Route::delete('/delete/{id}',[CourseController::class,'delete']);
 
 Route::post('/register',[UserController::class,'register']);

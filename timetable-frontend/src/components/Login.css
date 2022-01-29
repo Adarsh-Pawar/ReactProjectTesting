@@ -69,6 +69,8 @@
     font-weight: 500;
     border-radius: 15px;
     outline: none;
+    padding-right: 2px;
+    
 
 
 }
@@ -87,11 +89,18 @@
     color: #ff5722;
 }
 
-.pass {
-}
 
-.showpass {
-    font-size: 1.7rem;
+
+
+.showpass{
+    
+    font-size: 20px;
+    padding: 12px;
+    margin-left: -2.6rem;
     outline: none;
-    margin-left: 4rem;
+    background-color: transparent;
+    border-radius: 0 15px 15px 0;
+    border: 0;
+    cursor: pointer;
+    
 }

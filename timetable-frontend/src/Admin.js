@@ -16,7 +16,7 @@ function Admin() {
     
     const history = useHistory();
     useEffect(()=> {
-      if (!(localStorage.getItem('user_login'))||!(localStorage.getItem('admin_login')))
+      if (!(localStorage.getItem('user_login'))&&!(localStorage.getItem('admin_login')))
       {
          history.push("/")
       }

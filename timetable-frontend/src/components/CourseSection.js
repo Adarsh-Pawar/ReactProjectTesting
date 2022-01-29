@@ -94,16 +94,45 @@ function CourseModal(props) {
     const [course_id,setCourse_id] = useState("");
     const [course_name,setCourse_name] = useState("");
     const [status,setStatus] = useState("");
-    const [data,setData] = useState([])
+    const [data,setData] = useState([]);
 
-    function UpdateCourse(props) {
-      // useEffect(async ()=>{
-      //   let result = await fetch('http://127.0.0.1:8000/api/update/'+props.match.params.id);
-      //   result = await result.json();
-      //   setData(result)
-      // })
-      // console.warn("props",props.id)
+    // console.warn("props",props.id)
+    
+    
+      
+      
+      useEffect( ()=>{
+        
+        prefillData()
+      },[props])
+
+      console.log("data",data);
+
+      async function UpdateCourse(id) {
+        // event.preventDefault();
+      //   console.log("hello",id)
+      // const formData = new FormData();
+      // formData.append("course_id",course_id)
+      // formData.append("course_name",course_name)
+      // formData.append("status",status)
+      // let result = await fetch('http://127.0.0.1:8000/api/update/'+id+"?_method=PUT",{
+      //   method:'POST',
+      //   body:formData
+      
+      // });
+      alert(id)
+      
     }
+    async function prefillData() {
+      let result = await fetch('http://127.0.0.1:8000/api/prefill/'+props.id);
+      result = await result.json();
+      setData(result)
+      // setCourse_id(data.course_id)
+      // setCourse_name(data.course_name)
+      // setStatus(data.status)
+    }
+    // UpdateCourse(props)
+    
     return (
       <Modal
         {...props}
@@ -112,6 +141,7 @@ function CourseModal(props) {
         centered
       >
         <Modal.Header className='head' closeButton>
+        
          <div className="text-light text-center">
             <h1>Update Course</h1>
          </div>
@@ -121,13 +151,13 @@ function CourseModal(props) {
         <div className="container justify-content-center ">
           <div className="center verticle_center full_height ">
               <div className="login_form">
-                <form className='' onSubmit={UpdateCourse}>
+                <form className='' onSubmit={UpdateCourse(data.id)}>
                   <fieldset className=''>
                     <div className="field ">
                       <input
                         type="text"
                         defaultValue={data.course_id}
-                        // onChange={(e)=>setCourse_id(e.target.value)}
+                        onChange={(e)=>setCourse_id(e.target.value)}
                       />
                     </div>
                     <div class="field">
@@ -142,17 +172,21 @@ function CourseModal(props) {
                       <input
                         type="radio"
                         value="Active"
+                        // defaultValue={data.status}
                         onClick={(e)=>setStatus(e.target.value)}/>
                       <lable for="active" className="title">Active</lable>
                       <input
                         type="radio"
                         value="Inactive"
+                        // defaultValue={data.status}
                         onClick={(e)=>setStatus(e.target.value)}
                       />
                       <lable for="inactive" className="title">Inactive</lable>
                     </div>
                     <div className="field pt-4">
-                    <input type="submit" value="Add Course" className="btn" />
+                    <input type="submit" value="Update" className="btn"
+                      
+                     />
                     </div>
                   </fieldset>
                 </form>
@@ -168,12 +202,23 @@ function CourseModal(props) {
     );
   }
 function CourseSection() {
-    const [modalShow, setModalShow] = React.useState(false);
-    const [modalShow1, setModalShow1] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const [modalShow1, setModalShow1] = useState(false);
+    const [update,setupdate] = useState();
+
     const [data,setData] = useState([]);
     useEffect( ()=>{
       getData()
     },[])
+
+    function changeCourseInfo(e){
+
+      // console.log(e);
+
+      setupdate(e)
+      
+  
+    }
 
     async function deleteCourse(id) {
       let result = await fetch('http://127.0.0.1:8000/api/delete/'+id,{
@@ -245,7 +290,7 @@ function CourseSection() {
                                                 <td>{item.course_id}</td>
                                                 <td>{item.course_name}</td>
                                                 <td>{item.status}</td>
-                                                <td className=''><button class='btn bg-success ml-3' onClick={() => setModalShow1(true,item.id)}> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class='btn bg-warning ml-3'> <i class="fa fa-eye" aria-hidden="true"></i></button><button class='btn bg-danger ml-3' onClick={()=>{deleteCourse(item.id)}}><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                                <td className=''><button class='btn bg-success ml-3' onClick={() =>  { setModalShow1(true); changeCourseInfo(item.id);} }> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button class='btn bg-warning ml-3'> <i class="fa fa-eye" aria-hidden="true"></i></button><button class='btn bg-danger ml-3' onClick={()=>{deleteCourse(item.id)}}><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                             </tr>)} 
                                         </tbody>
                                     </table>
@@ -260,6 +305,10 @@ function CourseSection() {
                     <UpdateCourseModal
                         show={modalShow1}
                         onHide={() => setModalShow1(false)}
+                        
+                        id={update}
+                        
+
                     />
         </>
     )

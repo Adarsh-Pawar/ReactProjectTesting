@@ -28,6 +28,10 @@ class CourseController extends Controller
         $course->save();
     }
 
+    function prefill($id) {
+        return Course::find($id);
+    }
+
     function delete($id){
         Course::find($id)->delete();
     }

@@ -1,6 +1,3 @@
-
-import SideBar from './components/SideBar.js';
-import Main from './components/Main.js';
 import Login from './components/Login.js';
 import Sign from './components/Sign.js';
 import Register from './components/Register.js';
@@ -17,6 +14,7 @@ function App() {
           <Route exact path="/admin" component={Admin}></Route>
         </Switch>
       </Router>
+      
     </div>
   );
 }
