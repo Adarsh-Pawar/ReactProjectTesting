@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -28,7 +29,8 @@ Route::get('/prefill/{id}',[CourseController::class,'prefill']);
 Route::delete('/delete/{id}',[CourseController::class,'delete']);
 
 Route::post('/register',[UserController::class,'register']);
-Route::post('/login',[UserController::class,'login']);
+Route::post('/signin',[UserController::class,'signin']);
+Route::post('/login',[AdminController::class,'login']);
 
 
 

@@ -18,7 +18,7 @@ class UserController extends Controller
         $user->save();
     }
 
-    function login(Request $req){
+    function signin(Request $req){
         $user = User::where("UserName",$req->UserName)->first();
         if(!$user||!Hash::check($req->Password,$user->Password))
         {
