@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import DarkMode from './admin/components/DarkMode';
 
 ReactDOM.render(
   <React.StrictMode>

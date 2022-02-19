@@ -17,7 +17,7 @@ function CourseSection() {
             <div className="container-fluid">
                 <div className="row ">
                     <div className="col-md-12 ">
-                        <div className="page_title ">
+                        <div className="page_title">
                             <h2>Course</h2>
                         </div>
                     </div>
@@ -49,21 +49,21 @@ function CourseSection() {
                             <table className="table pl-4">
                                         <thead className="thead-dark ">
                                             <tr>
-                                                <th>#</th>
-                                                <th>Course Id</th>
-                                                <th>Course</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th className="text-center">#</th>
+                                                <th className="text-center">Course Id</th>
+                                                <th className="text-center">Course</th>
+                                                <th className="text-center">Status</th>
+                                                <th className="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                            {data.map((item)=>
                                             <tr>
-                                                <td>{item.id}</td>
-                                                <td>{item.course_id}</td>
-                                                <td>{item.course_name}</td>
-                                                <td>{item.status}</td>
-                                                <td><button className='btn ml-3 report'>Report</button></td>
+                                                <td className="text-center">{item.id}</td>
+                                                <td className="text-center">{item.course_id}</td>
+                                                <td className="text-center">{item.course_name}</td>
+                                                <td className="text-center">{item.status}</td>
+                                                <td className="text-center"><button className='btn ml-3 report'>Report</button></td>
                                             </tr>)} 
                                         </tbody>
                                     </table>

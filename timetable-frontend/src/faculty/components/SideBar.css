@@ -1,4 +1,5 @@
 
+
 .logo{
 	margin: 0px;
 	margin-left: 20px;
@@ -12,19 +13,20 @@
 
 /*left sidebar*/
 
-.sidenav {
+/* .sidenav {
   height: 100%;
   width: 230px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #293654;
+  background-color: ;
   overflow: hidden;
   transition: 0.5s;
   padding-top: 30px;
   font-size: 2rem;
-}
+} */
+
 .sidenav li
  {
   text-decoration: none;

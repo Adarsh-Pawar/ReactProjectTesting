@@ -6,6 +6,7 @@ import FacultySection from './admin/components/FacultySection'
 import ClassSection from './admin/components/ClassSection'
 import ConstrainSection from './admin/components/ConstrainSection'
 import TimetableSection from './admin/components/TimetableSection'
+import SettingSection from './admin/components/SettingSection'
 import Main from './admin/components/Main'
 import {useHistory} from 'react-router-dom'
 import {useEffect} from 'react'
@@ -35,9 +36,9 @@ function Admin() {
                   <Route exact path="/class" component={ClassSection}></Route>
                   <Route exact path="/constrain" component={ConstrainSection}></Route>
                   <Route exact path="/timetable" component={TimetableSection}></Route>
+                  <Route exact path="/setting" component={SettingSection}></Route>
               </Switch>
       </Router>
-      
       </div>
   )
 

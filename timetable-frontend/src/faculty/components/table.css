@@ -5,7 +5,7 @@
     margin-bottom: 30px;
     width:100%;
     padding: 25px 35px 22px 38px;
-    box-shadow: 25px 0 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 25px 0 12px rgba(53, 21, 21, 0.5);
     position: relative;
 }
 
@@ -167,7 +167,11 @@ table {
 
 .report {
     /* background-color : #E94560; */
-    background-color : #ED5107;
+    background-color : #FF0000;
+}
+
+.report:hover {
+    color: #341677;
 }
   
  

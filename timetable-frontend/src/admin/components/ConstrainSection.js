@@ -156,13 +156,13 @@ function ConstrainSection() {
     return (
         <>
             <div className="container-fluid">
-                <div className="row ">
+                {/* <div className="row "> */}
                     <div className="col-md-12 ">
                         <div className="page_title ">
                             <h2>Constrain</h2>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
 
                 <div className="row justify-content-center white_shd1 ">
 

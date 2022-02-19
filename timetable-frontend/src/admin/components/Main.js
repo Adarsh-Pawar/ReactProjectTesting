@@ -4,6 +4,7 @@ import img from '../assets/image/mca.png'
 import Cdata from '../assets/array/Cdata'
 import Cdata2 from '../assets/array/Cdata2'
 import Cdata3 from '../assets/array/Cdata3'
+
 function card1(val) {
     return (
         <div className={val.cols}>

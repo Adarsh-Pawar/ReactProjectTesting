@@ -54,6 +54,13 @@ const Sdata=[
         link:"/abc",
         slink: "text-white text-decoration-none",
         name:"ADMIN"
+    },
+    {
+        lis:"mt-5 py-2",
+        icon:"fa fa-cog text-white mx-3",
+        link:"/setting",
+        slink: "text-white text-decoration-none",
+        name:"SETTING"
     }
 ]
 

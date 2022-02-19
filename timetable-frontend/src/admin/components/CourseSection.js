@@ -89,12 +89,13 @@ function CourseModal(props) {
       </Modal>
     );
   }
+
   function UpdateCourseModal(props) {
     const [course_id,setCourse_id] = useState("");
     const [course_name,setCourse_name] = useState("");
     const [status,setStatus] = useState("");
     const [data,setData] = useState([]);
-
+    const [edit,setEdit] = useState({dila:{},change:false})
     // console.warn("props",props.id)
     
     
@@ -115,19 +116,34 @@ function CourseModal(props) {
 
       
     }
-    async function prefillData() {
-      let result = await fetch('http://127.0.0.1:8000/api/prefill/'+props.id);
-      result = await result.json();
-      setData(result)
-      setCourse_id(data.course_id)
-      setCourse_name(data.course_name)
-      setStatus(data.status)
-    }
 
-    useEffect( ()=>{
-         prefillData()
-      },[props])
+    // const prefill = (dila) => {
+    //   setEdit({
+    //     data,
+    //     change:true
+    //   })
+    // }
+
+    
+    // useEffect( ()=>{
+    //   setCourse_id(edit.dila.id)
+    // },[edit])
+
+
+    // async function prefillData() {
+      // let result = await fetch('http://127.0.0.1:8000/api/prefill/'+props.id);
+      // result = await result.json();
+      // setData(result)
+      // setCourse_id(data.course_id)
+      // setCourse_name(data.course_name)
+      // setStatus(data.status)
+    // }
+
+    // useEffect( ()=>{
+    //      prefillData()
+    //   },[props])
     // UpdateCourse(props)
+    // prefill(data)
     
     return (
       <Modal
@@ -235,13 +251,13 @@ function CourseSection() {
     return (
         <>
             <div className="container-fluid">
-                <div className="row ">
+                {/* <div className="row "> */}
                     <div className="col-md-12 ">
                         <div className="page_title ">
                             <h2>Course</h2>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
 
                 <div className="row justify-content-center white_shd1 ">
 

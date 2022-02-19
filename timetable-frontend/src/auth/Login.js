@@ -65,7 +65,7 @@ function Login() {
                      <form onSubmit={log}>
                         <fieldset>
                            <div className="field ">
-                              <input type="text" name="username" placeholder="Username"
+                              <input type="text" name="username" placeholder="Admin Name"
                               onChange={(e)=>setusername(e.target.value)} required/>
                            </div>
                            <div class="field">
